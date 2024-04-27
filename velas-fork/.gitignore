@@ -1,0 +1,4 @@
+vaempire-changes-remote-*-*.txt
+vaempire-changes-*-*.txt
+# Just vaempire-changes with prefix :^ - mean that this pathspec should be ignored
+pathspec-*-*.txt
