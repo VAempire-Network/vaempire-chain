@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://vaempire.com">
+  <a href="https://vaempire.network">
     <img alt="vaempire chain" src="https://i.imgur.com/1AHYxYP.png" width="250" />
   </a>
 </p>
@@ -60,14 +60,14 @@ $ cargo test --no-fail-fast
 ```
 
 ### EVM integration
-Info about EVM integration is at our [docs](https://docs.vaempire.com/evm).
+Info about EVM integration is at our [docs](https://docs.vaempire.network/evm).
 
 ### Starting a local testnet
-Start your own Development network locally, instructions are in the [online docs](https://docs.vaempire.com/cluster/bench-tps).
+Start your own Development network locally, instructions are in the [online docs](https://docs.vaempire.network/cluster/bench-tps).
 
 ### Accessing the remote testnet and mainnet
 * `testnet` - public accessible via bootstrap.testnet.veladev.net.
-* `mainnet` - public accessible via bootstrap.vaempire.com.
+* `mainnet` - public accessible via bootstrap.vaempire.network.
 
 # Benchmarking
 

@@ -4,10 +4,10 @@ set -ex
 
 if ls /data/ledger/snapshot*.tar.zst 1> /dev/null 2>&1; then
     echo "Snapshot found skip downloading"
-    vaempire-validator --log - --snapshot-interval-slots 300 --max-genesis-archive-unpacked-size 707374182 --ledger /data/ledger --dynamic-port-range 8001-8011 --entrypoint bootstrap.vaempire.com:8001 --no-voting --enable-rpc-transaction-history --rpc-port 8899 --expected-shred-version 17211 --no-port-check --evm-state-archive /data/archive --no-snapshot-fetch
+    vaempire-validator --log - --snapshot-interval-slots 300 --max-genesis-archive-unpacked-size 707374182 --ledger /data/ledger --dynamic-port-range 8001-8011 --entrypoint bootstrap.vaempire.network:8001 --no-voting --enable-rpc-transaction-history --rpc-port 8899 --expected-shred-version 17211 --no-port-check --evm-state-archive /data/archive --no-snapshot-fetch
 else
     echo "Download snapshot before running validator"
-    vaempire-validator --log - --snapshot-interval-slots 300 --max-genesis-archive-unpacked-size 707374182 --ledger /data/ledger --dynamic-port-range 8001-8011 --entrypoint bootstrap.vaempire.com:8001 --no-voting --enable-rpc-transaction-history --rpc-port 8899 --expected-shred-version 17211 --no-port-check --evm-state-archive /data/archive
+    vaempire-validator --log - --snapshot-interval-slots 300 --max-genesis-archive-unpacked-size 707374182 --ledger /data/ledger --dynamic-port-range 8001-8011 --entrypoint bootstrap.vaempire.network:8001 --no-voting --enable-rpc-transaction-history --rpc-port 8899 --expected-shred-version 17211 --no-port-check --evm-state-archive /data/archive
 fi
 
 

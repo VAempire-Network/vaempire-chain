@@ -11,8 +11,8 @@ mkdir -p "$SOLANA_CONFIG_DIR"/latest-testnet-snapshot
 (
   cd "$SOLANA_CONFIG_DIR"/latest-testnet-snapshot || exit 1
   set -x
-  wget http://api.testnet.vaempire.com/genesis.tar.bz2
-  wget --trust-server-names http://testnet.vaempire.com/snapshot.tar.bz2
+  wget http://api.testnet.vaempire.network/genesis.tar.bz2
+  wget --trust-server-names http://testnet.vaempire.network/snapshot.tar.bz2
 )
 
 snapshot=$(ls "$SOLANA_CONFIG_DIR"/latest-testnet-snapshot/snapshot-[0-9]*-*.tar.zst)
