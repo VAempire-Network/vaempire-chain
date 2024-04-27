@@ -1701,7 +1701,7 @@ pub mod tests {
             epoch_schedule::EpochSchedule,
             hash::Hash,
             instruction::InstructionError,
-            native_token::LAMPORTS_PER_VLX,
+            native_token::LAMPORTS_PER_VAMP,
             pubkey::Pubkey,
             signature::{Keypair, Signer},
             system_instruction::{SystemError, MAX_PERMITTED_DATA_LENGTH},
@@ -4340,7 +4340,7 @@ pub mod tests {
             genesis_config,
             mint_keypair,
             ..
-        } = create_genesis_config((1_000_000 + NUM_ACCOUNTS + 1) * LAMPORTS_PER_VLX);
+        } = create_genesis_config((1_000_000 + NUM_ACCOUNTS + 1) * LAMPORTS_PER_VAMP);
         let bank = Bank::new_for_tests(&genesis_config);
         let bank = Arc::new(bank);
         assert!(bank
@@ -4352,7 +4352,7 @@ pub mod tests {
                 &mint_keypair,
                 &Keypair::new(),
                 bank.last_blockhash(),
-                LAMPORTS_PER_VLX,
+                LAMPORTS_PER_VAMP,
                 ACCOUNT_SIZE,
                 &solana_sdk::system_program::id(),
             );
@@ -4367,7 +4367,7 @@ pub mod tests {
             &mint_keypair,
             &Keypair::new(),
             bank.last_blockhash(),
-            LAMPORTS_PER_VLX,
+            LAMPORTS_PER_VAMP,
             ACCOUNT_SIZE,
             &solana_sdk::system_program::id(),
         );
@@ -4389,7 +4389,7 @@ pub mod tests {
         const ACCOUNTS_DATA_SIZE_DELTA_PER_ITERATION: u64 = ACCOUNT_SIZE - SHRINK_SIZE;
         const NUM_ITERATIONS: u64 =
             REMAINING_ACCOUNTS_DATA_SIZE / ACCOUNTS_DATA_SIZE_DELTA_PER_ITERATION;
-        const ACCOUNT_BALANCE: u64 = 70 * LAMPORTS_PER_VLX; // rent exempt amount for a 10MB account is a little less than 70 SOL
+        const ACCOUNT_BALANCE: u64 = 70 * LAMPORTS_PER_VAMP; // rent exempt amount for a 10MB account is a little less than 70 SOL
 
         let GenesisConfigInfo {
             genesis_config,

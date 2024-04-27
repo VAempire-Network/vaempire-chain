@@ -140,7 +140,7 @@ impl EvmProcessor {
         };
 
         if register_swap_tx_in_evm {
-            executor.reset_balance(*precompiles::ETH_TO_VLX_ADDR, ignore_reset_on_cleared)
+            executor.reset_balance(*precompiles::ETH_TO_VAMP_ADDR, ignore_reset_on_cleared)
         }
 
         // When old error handling, manually convert EvmError to InstructionError
@@ -400,7 +400,7 @@ impl EvmProcessor {
         evm_account.set_lamports(evm_account_lamports);
         executor.deposit(evm_address, gweis);
         if register_swap_tx_in_evm {
-            executor.register_swap_tx_in_evm(*precompiles::ETH_TO_VLX_ADDR, evm_address, gweis)
+            executor.register_swap_tx_in_evm(*precompiles::ETH_TO_VAMP_ADDR, evm_address, gweis)
         }
         Ok(())
     }
@@ -1454,9 +1454,9 @@ mod test {
             nonce: 0u32.into(),
             gas_price: 1u32.into(),
             gas_limit: 300000u32.into(),
-            action: TransactionAction::Call(*precompiles::ETH_TO_VLX_ADDR),
+            action: TransactionAction::Call(*precompiles::ETH_TO_VAMP_ADDR),
             value: crate::scope::evm::lamports_to_gwei(lamports_to_send_back),
-            input: precompiles::ETH_TO_VLX_CODE
+            input: precompiles::ETH_TO_VAMP_CODE
                 .abi
                 .encode_input(&[ethabi::Token::FixedBytes(
                     second_user_id.to_bytes().to_vec(),
@@ -1479,7 +1479,7 @@ mod test {
             assert_eq!(
                 evm_context
                     .evm_state
-                    .get_account_state(*precompiles::ETH_TO_VLX_ADDR)
+                    .get_account_state(*precompiles::ETH_TO_VAMP_ADDR)
                     .unwrap()
                     .balance,
                 0u32.into()
@@ -1569,9 +1569,9 @@ mod test {
             nonce: 0u32.into(),
             gas_price: 1u32.into(),
             gas_limit: 300000u32.into(),
-            action: TransactionAction::Call(*precompiles::ETH_TO_VLX_ADDR),
+            action: TransactionAction::Call(*precompiles::ETH_TO_VAMP_ADDR),
             value: crate::scope::evm::lamports_to_gwei(lamports_to_send_back),
-            input: precompiles::ETH_TO_VLX_CODE
+            input: precompiles::ETH_TO_VAMP_CODE
                 .abi
                 .encode_input(&[ethabi::Token::FixedBytes(
                     second_user_id.to_bytes().to_vec(),
@@ -1596,7 +1596,7 @@ mod test {
             assert_eq!(
                 evm_context
                     .evm_state
-                    .get_account_state(*precompiles::ETH_TO_VLX_ADDR)
+                    .get_account_state(*precompiles::ETH_TO_VAMP_ADDR)
                     .unwrap()
                     .balance,
                 0u32.into()
@@ -1694,9 +1694,9 @@ mod test {
             nonce: 0u32.into(),
             gas_price: 1u32.into(),
             gas_limit: 300000u32.into(),
-            action: TransactionAction::Call(*precompiles::ETH_TO_VLX_ADDR),
+            action: TransactionAction::Call(*precompiles::ETH_TO_VAMP_ADDR),
             value: crate::scope::evm::lamports_to_gwei(lamports_to_send_back),
-            input: precompiles::ETH_TO_VLX_CODE
+            input: precompiles::ETH_TO_VAMP_CODE
                 .abi
                 .encode_input(&[ethabi::Token::FixedBytes(
                     second_user_id.to_bytes().to_vec(),
@@ -1720,7 +1720,7 @@ mod test {
             assert_eq!(
                 evm_context
                     .evm_state
-                    .get_account_state(*precompiles::ETH_TO_VLX_ADDR)
+                    .get_account_state(*precompiles::ETH_TO_VAMP_ADDR)
                     .unwrap()
                     .balance,
                 0u32.into()

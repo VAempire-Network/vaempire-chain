@@ -817,9 +817,9 @@ impl TraceERPC for TraceErpcImpl {
                     .collect();
 
                 // Shortcut for swap tokens to native, will add solana account to transaction.
-                if address == *ETH_TO_VLX_ADDR {
+                if address == *ETH_TO_VAMP_ADDR {
                     debug!("Found transferToNative transaction");
-                    match ETH_TO_VLX_CODE.parse_abi(&input) {
+                    match ETH_TO_VAMP_CODE.parse_abi(&input) {
                         Ok(pk) => {
                             info!("Adding account to meta = {}", pk);
 
@@ -845,7 +845,7 @@ impl TraceERPC for TraceErpcImpl {
             let mut is_native_tx = false;
             if Some(U256::from(0x1)) == tx.s {
                 // check if it native swap, then predeposit, amount, to pass transaction
-                if caller == *ETH_TO_VLX_ADDR {
+                if caller == *ETH_TO_VAMP_ADDR {
                     let amount = value + gas_limit * gas_price;
                     executor.deposit(caller, amount)
                 }
@@ -1170,9 +1170,9 @@ fn call_inner(
             .collect();
 
         // Shortcut for swap tokens to native, will add solana account to transaction.
-        if address == *ETH_TO_VLX_ADDR {
+        if address == *ETH_TO_VAMP_ADDR {
             debug!("Found transferToNative transaction");
-            match ETH_TO_VLX_CODE.parse_abi(&input) {
+            match ETH_TO_VAMP_CODE.parse_abi(&input) {
                 Ok(pk) => {
                     info!("Adding account to meta = {}", pk);
 
@@ -1193,7 +1193,7 @@ fn call_inner(
     // system transfers always set s = 0x1
     if Some(U256::from(0x1)) == tx.s {
         // check if it native swap, then predeposit, amount, to pass transaction
-        if caller == *ETH_TO_VLX_ADDR {
+        if caller == *ETH_TO_VAMP_ADDR {
             let amount = value + gas_limit * gas_price;
             executor.deposit(caller, amount)
         }

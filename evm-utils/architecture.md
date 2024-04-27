@@ -189,8 +189,8 @@ It just set account owner to system program, if it perviously was set ot evm acc
    
 Swap from evm implementation:
 Swap from evm world is done by implementing precompile that modify solana state,
-when any transaction make call to specific address `ETH_TO_VLX_ADDR` program interupted and `ETH_TO_VLX_CODE` is called.
-When it is called, it expect `recipient` address as argument, also this precompile is done as payable, so it is also expect internal `value` argument, before call this value is substracted from caller account. And `ETH_TO_VLX_CODE` is transfer it from EvmState account to account that it tries to find by `recipient` address.
+when any transaction make call to specific address `ETH_TO_VAMP_ADDR` program interupted and `ETH_TO_VAMP_CODE` is called.
+When it is called, it expect `recipient` address as argument, also this precompile is done as payable, so it is also expect internal `value` argument, before call this value is substracted from caller account. And `ETH_TO_VAMP_CODE` is transfer it from EvmState account to account that it tries to find by `recipient` address.
 
 Problems that we discover before:
 - Both our swaps works invalid with revert. `SwapNativeToEther` with revert in solana can keep money on evm, and reverts in evm didn't trigger revert in solana. To fix this, now revert in evm trigger revert in solana, and on any revert, state changes are ignored for whole transaction execution.

@@ -7426,7 +7426,7 @@ pub(crate) mod tests {
             hash,
             instruction::{AccountMeta, CompiledInstruction, Instruction, InstructionError},
             message::{Message, MessageHeader},
-            native_token::LAMPORTS_PER_VLX,
+            native_token::LAMPORTS_PER_VAMP,
             nonce,
             poh_config::PohConfig,
             rent::Rent,
@@ -11027,7 +11027,7 @@ pub(crate) mod tests {
         let state = evm_state.get_account_state(receiver).unwrap_or_default();
         assert_eq!(state.balance, 0.into());
         let state_swapper = evm_state
-            .get_account_state(*solana_evm_loader_program::precompiles::ETH_TO_VLX_ADDR)
+            .get_account_state(*solana_evm_loader_program::precompiles::ETH_TO_VAMP_ADDR)
             .unwrap_or_default();
         assert_eq!(state_swapper.nonce, 1.into());
         assert_eq!(state_swapper.balance, 0.into());
@@ -11095,7 +11095,7 @@ pub(crate) mod tests {
         assert_eq!(state.balance, 0.into());
         assert_eq!(state.nonce, 1.into());
         let state_swapper = evm_state
-            .get_account_state(*solana_evm_loader_program::precompiles::ETH_TO_VLX_ADDR)
+            .get_account_state(*solana_evm_loader_program::precompiles::ETH_TO_VAMP_ADDR)
             .unwrap_or_default();
         assert_eq!(state_swapper.nonce, 1.into());
         assert_eq!(state_swapper.balance, 0.into());
@@ -11153,7 +11153,7 @@ pub(crate) mod tests {
             solana_evm_loader_program::scope::evm::lamports_to_gwei(20000)
         ); // 10^9 times bigger
         let state_swapper = evm_state
-            .get_account_state(*solana_evm_loader_program::precompiles::ETH_TO_VLX_ADDR)
+            .get_account_state(*solana_evm_loader_program::precompiles::ETH_TO_VAMP_ADDR)
             .unwrap_or_default();
         assert_eq!(state_swapper.nonce, 1.into());
         assert_eq!(state_swapper.balance, 0.into());
@@ -17851,7 +17851,7 @@ pub(crate) mod tests {
             &mint_keypair,
             &Keypair::new(),
             bank.last_blockhash(),
-            LAMPORTS_PER_VLX,
+            LAMPORTS_PER_VAMP,
             ACCOUNT_SIZE,
             &solana_sdk::system_program::id(),
         );
@@ -17891,7 +17891,7 @@ pub(crate) mod tests {
             &Keypair::new(),
             &Keypair::new(),
             bank.last_blockhash(),
-            LAMPORTS_PER_VLX,
+            LAMPORTS_PER_VAMP,
             ACCOUNT_SIZE,
             &solana_sdk::system_program::id(),
         );
@@ -19077,7 +19077,7 @@ pub(crate) mod tests {
             genesis_config,
             mint_keypair,
             ..
-        } = genesis_utils::create_genesis_config(100 * LAMPORTS_PER_VLX);
+        } = genesis_utils::create_genesis_config(100 * LAMPORTS_PER_VAMP);
         let mut bank = Bank::new_for_tests(&genesis_config);
         let mock_program_id = Pubkey::new_unique();
         bank.add_builtin(
@@ -19090,7 +19090,7 @@ pub(crate) mod tests {
         let funding_keypair = Keypair::new();
         bank.store_account(
             &funding_keypair.pubkey(),
-            &AccountSharedData::new(10 * LAMPORTS_PER_VLX, 0, &mock_program_id),
+            &AccountSharedData::new(10 * LAMPORTS_PER_VAMP, 0, &mock_program_id),
         );
 
         let mut rng = rand::thread_rng();
@@ -19098,7 +19098,7 @@ pub(crate) mod tests {
         // Test case: Grow account
         {
             let account_pubkey = Pubkey::new_unique();
-            let account_balance = LAMPORTS_PER_VLX;
+            let account_balance = LAMPORTS_PER_VAMP;
             let account_size = rng.gen_range(1, MAX_PERMITTED_DATA_LENGTH) as usize;
             let account_data =
                 AccountSharedData::new(account_balance, account_size, &mock_program_id);
@@ -19127,7 +19127,7 @@ pub(crate) mod tests {
         // Test case: Shrink account
         {
             let account_pubkey = Pubkey::new_unique();
-            let account_balance = LAMPORTS_PER_VLX;
+            let account_balance = LAMPORTS_PER_VAMP;
             let account_size =
                 rng.gen_range(MAX_PERMITTED_DATA_LENGTH / 2, MAX_PERMITTED_DATA_LENGTH) as usize;
             let account_data =
@@ -19160,7 +19160,7 @@ pub(crate) mod tests {
     fn test_accounts_data_size_and_rent_collection() {
         let GenesisConfigInfo {
             mut genesis_config, ..
-        } = genesis_utils::create_genesis_config(100 * LAMPORTS_PER_VLX);
+        } = genesis_utils::create_genesis_config(100 * LAMPORTS_PER_VAMP);
         genesis_config.rent = Rent::default();
         activate_all_features(&mut genesis_config);
         let bank = Arc::new(Bank::new_for_tests(&genesis_config));

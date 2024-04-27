@@ -3979,7 +3979,7 @@ mod tests {
         panic!(
             "stake minimum_balance: {} lamports, {} SOL",
             minimum_balance,
-            minimum_balance as f64 / solana_sdk::native_token::LAMPORTS_PER_VLX as f64
+            minimum_balance as f64 / solana_sdk::native_token::LAMPORTS_PER_VAMP as f64
         );
     }
 

@@ -55,7 +55,7 @@ pub fn get_clap_app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> A
                         .takes_value(true)
                         .validator(is_amount)
                         .required(true)
-                        .help("The airdrop amount to request, in VLX"),
+                        .help("The airdrop amount to request, in VAMP"),
                 )
                 .arg(
                     pubkey!(Arg::with_name("to")
@@ -77,7 +77,7 @@ pub fn get_clap_app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> A
                     Arg::with_name("lamports")
                         .long("lamports")
                         .takes_value(false)
-                        .help("Display balance in lamports instead of VLX"),
+                        .help("Display balance in lamports instead of VAMP"),
                 ),
         )
         .subcommand(
@@ -186,7 +186,7 @@ pub fn get_clap_app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> A
                     Arg::with_name("allow_excessive_balance")
                         .long("allow-excessive-deploy-account-balance")
                         .takes_value(false)
-                        .help("Use the designated program id, even if the account already holds a large balance of VLX")
+                        .help("Use the designated program id, even if the account already holds a large balance of VAMP")
                 ),
         )
         .subcommand(
@@ -220,7 +220,7 @@ pub fn get_clap_app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> A
                         .takes_value(true)
                         .validator(is_amount_or_all)
                         .required(true)
-                        .help("The amount to send, in VLX; accepts keyword ALL"),
+                        .help("The amount to send, in VAMP; accepts keyword ALL"),
                 )
                 .arg(
                     pubkey!(Arg::with_name("from")
@@ -285,7 +285,7 @@ pub fn get_clap_app<'ab, 'v>(name: &str, about: &'ab str, version: &'v str) -> A
                     Arg::with_name("lamports")
                         .long("lamports")
                         .takes_value(false)
-                        .help("Display balance in lamports instead of VLX"),
+                        .help("Display balance in lamports instead of VAMP"),
                 ),
         )
         .validator_info_subcommands()

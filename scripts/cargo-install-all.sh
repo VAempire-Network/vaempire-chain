@@ -100,7 +100,6 @@ else
         vaempire-validator
         solana-ledger-tool
         evm-bridge
-        rbpf-cli
     )
     
     # Speed up net.sh deploys by excluding unused binaries
@@ -108,8 +107,6 @@ else
         BINS+=(
             cargo-build-bpf
             cargo-test-bpf
-            solana-dos
-            solana-stake-accounts
         )
     fi
     
