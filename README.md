@@ -1,9 +1,3 @@
-<p align="center">
-  <a href="https://vaempire.network">
-    <img alt="vaempire chain" src="https://i.imgur.com/1AHYxYP.png" width="250" />
-  </a>
-</p>
-
 # Building
 
 ## **1. Install rustc, cargo and rustfmt.**
